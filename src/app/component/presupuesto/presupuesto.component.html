@@ -1,0 +1,71 @@
+<form [formGroup]='forma'>
+    <hr>
+    <div>
+        <label>Seleccionar Cliente</label>
+        <select class="custom-select" class="form-control" name="idCliente" formControlName="idCliente">
+            <option *ngFor = "let items of clientes" [value] = items.id  >
+                    {{items.nombre}}  {{items.apellido}}  - CUIT :{{items.cuit}}
+             </option>    
+        </select>
+    </div>
+
+    <hr>
+    <h6>Bolsa</h6>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="inputAncho">Ancho</label>
+            <input type="number" class="form-control" formControlName="ancho">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputAncho">Largo</label>
+            <input type="number" class="form-control" formControlName="largo">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputAncho">Espesor</label>
+            <input type="number" class="form-control" formControlName="espesor">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Material</label>
+            <select class="form-control" name="material" formControlName="material">
+                 <option *ngFor = "let items of materiales" [value] = items.id  >
+                    {{items.tipoMaterial}}
+                 </option>    
+             </select>
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="inputCantida">Cantidad</label>
+            <input type="number" class="form-control" formControlName="cantidad">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputPrecio">Precio</label>
+            <input type="number" class="form-control" formControlName="precio">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Tipo de Corte</label>
+            <select id="inputState" class="form-control" formControlName="tipocorte">
+              <option *ngFor = "let items of cortes" [value] = items.id  >
+                {{items.tipoCorte}}
+              </option>
+            </select>
+        </div>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="confuelle">
+            <label class="custom-control-label" for="customSwitch1">Con Fuelle</label>
+        </div>
+    </div>
+</form>
+<hr>
+<pre>
+    Estado del formulario: {{ forma.valid }}
+    <br>
+    Status: {{ forma.status }}
+  </pre>
+
+<pre>
+  
+    {{ forma.value | json }}
+  
+  </pre>

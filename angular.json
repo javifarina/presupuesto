@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "presupuesto"
+    }
+  },
+  "defaultProject": "presupuesto",
+  "cli": {
+    "analytics": false
+  }
 }
